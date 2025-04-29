@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI & Calorie Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>BMI & Calorie Calculator</h1>
+
+        <!-- Unit Selector -->
+        <div class="unit-selector">
+            <label>
+                <input type="radio" name="unit" value="metric" checked> Metric (kg, cm)
+            </label>
+            <label>
+                <input type="radio" name="unit" value="imperial"> Imperial (lbs, ft, in)
+            </label>
+        </div>
+
+        <!-- Metric Inputs -->
+        <div class="input-group" id="metric-inputs">
+            <label for="weight-kg">Weight (kg):</label>
+            <input type="number" id="weight-kg" placeholder="Enter weight in kilograms">
+            <label for="height-cm">Height (cm):</label>
+            <input type="number" id="height-cm" placeholder="Enter height in centimeters">
+        </div>
+
+        <!-- Imperial Inputs -->
+        <div class="input-group" id="imperial-inputs" style="display: none;">
+             <label for="weight-lbs">Weight (lbs):</label>
+            <input type="number" id="weight-lbs" placeholder="Enter weight in pounds">
+            <label for="height-ft">Height:</label>
+            <div class="height-imperial">
+                 <input type="number" id="height-ft" placeholder="Feet">
+                 <span>ft</span>
+                 <input type="number" id="height-in" placeholder="Inches">
+                 <span>in</span>
+            </div>
+        </div>
+
+        <!-- Additional Inputs for Calorie Calculation -->
+        <div class="input-group">
+            <label for="age">Age:</label>
+            <input type="number" id="age" placeholder="Enter your age">
+        </div>
+        <div class="input-group">
+            <label>Gender:</label>
+            <div class="gender-selector">
+                <label><input type="radio" name="gender" value="male" checked> Male</label>
+                <label><input type="radio" name="gender" value="female"> Female</label>
+            </div>
+        </div>
+
+        <!-- Calculate Button -->
+        <button id="calculate-btn">Calculate BMI & Calories</button>
+
+        <!-- BMI Result -->
+        <div id="result-bmi" class="result-section">
+            <h2>Your BMI: <span id="bmi-score">-</span></h2>
+            <p>Category: <span id="bmi-category">-</span></p>
+            <div class="bmi-chart-info">
+                <h3>BMI Categories:</h3>
+                <ul>
+                    <li>Underweight: &lt; 18.5</li>
+                    <li>Healthy: 18.5 - 24.9</li>
+                    <li>Overweight: 25 - 29.9</li>
+                    <li>Obese: 30 - 34.9</li>
+                    <li>Extremely Obese: &ge; 35</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Calorie Result -->
+        <div id="result-calories" class="result-section" style="display: none;">
+            <h2>Calorie Needs</h2>
+            <p>Your Basal Metabolic Rate (BMR): <strong id="bmr-result">-</strong> kcal/day</p>
+            <p>This is the number of calories your body burns at rest.</p>
+
+            <h3>Estimated Daily Calorie Needs (TDEE)</h3>
+            <div id="tdee-results">
+                <!-- TDEE results will be populated by JavaScript -->
+            </div>
+             <p class="calorie-note">Calorie targets shown are estimates. Deficit (~ -500 kcal) aims for weight loss, Surplus (~ +500 kcal) aims for weight gain.</p>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
